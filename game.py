@@ -16,6 +16,7 @@ player_choice = input("Choose rock, paper, scissors: ")
 
 print("user choice" + player_choice)
 
+
 ##Step 4, we are at the 3rd iteration of this game, 3 lives total. 
 
 player_lives = 3
@@ -28,11 +29,41 @@ total_lives = 3
 
 player_choice = False
 # player_choice == False
+
+# creating a function // part 1 of drying out our code
+def winorlose(status):
+	#version 1 of function
+	#print("Inside winorlose function; status is: ", status)
+	print("You", status ," Would you like to play again?")
+	choice = input("Y / N? ")
+
+	if choice == "N" or choice == "n":
+			print("You chose to quite! Better luck next time!")
+			exit()
+	elif choice == "Y" or choice == "y":
+			global player_lives
+			global computer_lives
+			global total_lives
+			player_lives = total_lives
+			computer_lives = total_lives
+	else:
+			print("Make a valid choice - Y or N")
+			choice = input("Y / N?")
+
+
+
+
 while player_choice is False: # = True
+	print("=================*/ RPS GAME */==============")
+	print("Computer Lives:", computer_lives, "/", total_lives)
+	print("Player Lives:", player_lives, "/", total_lives)
+	print("============================================")
+	#creating decoration
+
 	#you highlight everything below and tab
 	#
 
-
+    #player_choice = input("Choose Rock, Paper, or Scissors: \n")
 	#step 2 part 2
 	computer_choice = choices [randint(0,2)]
 
@@ -74,34 +105,13 @@ while player_choice is False: # = True
 			computer_lives -= 1
 
 	if player_lives == 0:
-		print("you lose! Would you like to play again?")
-		choice = input("Y / N? ")
-
-		if choice == "N" or choice =="n"
-			print("You chose to quite! Better luck next time!")
-			exit()
-		elif choice == "Y" or choice == "y":
-			player_lives = total_lives
-			computer_lives = total_lives
-		else:
-			print("Make a valid choice - Y or N")
-			choice = input("Y / N?")
+		winorlose("lose")
+		
 
 
 	if computer_lives == 0:
-		print("you win! Would you like to play again?")
-		choice = input("Y / N? ")
-
-		if choice == "N" or choice =="n"
-			print("You chose to quite! Better luck next time!")
-			exit()
-		elif choice == "Y" or choice == "y":
-			player_lives = total_lives
-			computer_lives = total_lives
-		else:
-			print("Make a valid choice - Y or N")
-			choice = input("Y / N?")
-
+		winorlose("won")
+		
 
 
 	#Step 4: Prints out how many lives
