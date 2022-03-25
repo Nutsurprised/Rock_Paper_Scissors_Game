@@ -62,7 +62,15 @@ while player_choice is False: # = True
 
 	#you highlight everything below and tab
 	#
+	print("Choose your weapon! Or type quit to exit\n")
 
+	player_choice = input("Choose rock, paper, or scissors: \n")
+
+	print("user chose: " + player_choice)
+
+	if player_choice == "quit":
+		print("You chose to quit")
+		exit()
     #player_choice = input("Choose Rock, Paper, or Scissors: \n")
 	#step 2 part 2
 	computer_choice = choices [randint(0,2)]
